@@ -47,13 +47,12 @@ class DBStorage:
                 dict_of_objects = {f'{type(cls).__name__}.{class_objs.id}':
                                    class_objs for class_objs in
                                    session.query(cls)}
-            return (dict_of_objects)
             else:
                 for classes in BaseModel.__subclasses__():
                     dict_of_objects = {f'{type(classes).__name__}.
                                        {class_objs.id}': class_objs for
                                        class_objs in session.query(classes)}
-                return (dict_of_objects)
+            return (dict_of_objects)
 
     def new(self, obj):
         """Add the object passed as 'obj' into the current DB session"""
