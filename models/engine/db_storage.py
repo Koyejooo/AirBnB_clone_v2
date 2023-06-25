@@ -49,7 +49,7 @@ class DBStorage:
                                    session.query(cls)}
             else:
                 for classes in BaseModel.__subclasses__():
-                    dict_of_objects = {f'{type(classes).__name__}.
+                    dict_of_objects = {f'{type(classes).__name__}.\
                                        {class_objs.id}': class_objs for
                                        class_objs in session.query(classes)}
             return (dict_of_objects)
